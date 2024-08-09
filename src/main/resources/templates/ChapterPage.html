@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link th:href="@{/css/chaptercss.css}" rel="stylesheet">
+    <title>Chapter Page</title>
+    <style>
+        .chapter-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="manga-info">
+        <img th:src="'https://uploads.mangadex.org/covers/' + ${mangaid} + '/' + ${detail.coverURL} + '.512.jpg'" alt="Cover Image" class="manga-cover">
+        <div class="manga-details">
+            <h1 th:text="${detail.title}" class="manga-title"></h1>
+            <p th:text=" ${detail.description}" class="manga-description"></p>
+            <p th:text="'Release Year: ' + ${detail.releaseYear}" class="manga-release-year"></p>
+            <p th:text="'Status: ' + ${detail.status}" class="manga-status"></p>
+        </div>
+    </div>
+
+    <h2>Chapters</h2>
+    <table class="chapter-table">
+        <thead>
+        <tr>
+            <th>Chapter Number</th>
+            <th>Chapter Name</th>
+            <th>Release Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="chapter : ${detail.chapters}" class="chapter-item" th:attr="data-id=${chapter.chapterId}">
+            <td th:text="${chapter.FormattedChapterNumber}"></td>
+            <td th:text="${chapter.chapterName}"></td>
+            <td th:text="${#dates.format(chapter.releaseDate, 'yyyy-MM-dd')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    function redirectToChapterInfo(chapterId) {
+        window.location.href = '/chapter-info?chapterId=' + chapterId;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const chapterItems = document.querySelectorAll('.chapter-item');
+
+        chapterItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const chapterId = this.getAttribute('data-id');
+                redirectToChapterInfo(chapterId);
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

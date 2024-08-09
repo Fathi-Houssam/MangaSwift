@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link th:href="@{/css/resultcss.css}" rel="stylesheet">
+    <title>Search Results</title>
+    <style>
+        .manga-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div th:if="${mangas != null}" class="manga-container">
+    <ul>
+        <li th:each="manga : ${mangas}" class="manga-item" th:attr="data-id=${manga.id}">
+            <img th:src="'https://uploads.mangadex.org/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'" alt="Cover Image" class="manga-cover">
+            <div class="manga-details">
+                <h2 th:text="${manga.title}" class="manga-title"></h2>
+                <p class="manga-chapters">Chapters: <span th:text="${manga.getFormattedChapterNumber()}"></span></p>
+                <p class="manga-author">Author: <span th:text="${manga.authorName}"></span></p>
+                <div class="manga-tags">
+                    <span th:each="tag : ${manga.tags}" class="tag" th:text="${tag}"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div th:if="${mangas == null}">
+    <p>No results found.</p>
+</div>
+<script>
+    function redirectToChapterPage(mangaId) {
+        window.location.href = '/chapter?mangaId=' + mangaId;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const mangaItems = document.querySelectorAll('.manga-item');
+        mangaItems.forEach(item => {
+            item.addEventListener('click', (event) => {
+                const mangaId = event.currentTarget.getAttribute('data-id');
+                redirectToChapterPage(mangaId);
+            });
+        });
+    });
+</script>
+</body>
+</html>

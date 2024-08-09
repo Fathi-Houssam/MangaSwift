@@ -1,0 +1,87 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    font-weight: 800;
+}
+
+p {
+    font-weight: 400;
+}
+
+.container {
+    width: 75%;
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+.manga-info {
+    display: flex;
+    align-items: flex-start;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin: 10px 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.manga-cover {
+    max-width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 12px;
+}
+
+.manga-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.manga-title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.manga-description, .manga-release-year, .manga-status {
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+.chapter-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.chapter-table th, .chapter-table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+.chapter-table th {
+    background-color: #1e1e1e;
+    font-weight: 700;
+}
+
+.chapter-table tr:nth-child(even) {
+    background-color: #333;
+}
+
+.chapter-table tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+.chapter-table td {
+    font-weight: 400;
+}
