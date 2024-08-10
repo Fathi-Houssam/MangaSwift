@@ -17,33 +17,27 @@ p {
     font-weight: 400;
 }
 
-.manga-container {
+.container {
     width: 75%;
     max-width: 1200px;
     margin: 20px 0;
 }
 
-.manga-container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.manga-item {
+.manga-info {
     display: flex;
     align-items: flex-start;
     background-color: #1e1e1e;
     border: 1px solid #333;
     border-radius: 6px;
     margin: 10px 0;
-    padding: 10px;
+    padding: 20px;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .manga-cover {
     max-width: 150px;
     height: auto;
-    margin-right: 10px;
+    margin-right: 20px;
     border-radius: 12px;
 }
 
@@ -54,27 +48,44 @@ p {
 
 .manga-title {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
-.manga-chapters {
-    margin: 10px 0 5px;
+.manga-description, .manga-release-year, .manga-status {
+    margin: 10px 0;
     font-weight: 400;
 }
 
-.manga-tags {
-    display: flex;
-    flex-wrap: wrap;
+.chapter-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.tag {
+.chapter-table th, .chapter-table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+.chapter-table th {
+    background-color: #1e1e1e;
+    font-weight: 700;
+}
+
+.chapter-table tr:nth-child(even) {
     background-color: #333;
-    border-radius: 12px;
-    padding: 5px 10px;
-    margin: 5px 5px 0 0;
-    font-size: 0.9em;
-    color: #ddd;
 }
-.manga-item:hover{
-    background-color: #2a2a2a;
+
+.chapter-table tr:nth-child(odd) {
+    background-color: #1e1e1e;
 }
+
+.chapter-table td {
+    font-weight: 400;
+}
+.chapter-table tr:hover {
+    background-color: #3a3f44;
+}
+

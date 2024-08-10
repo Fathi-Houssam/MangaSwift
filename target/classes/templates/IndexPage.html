@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>MangaSlay</title>
+    <link th:href="@{/css/resultcss.css}" rel="stylesheet">
+</head>
+<body>
+
+<h1>MangaSlay</h1>
+
+<form th:action="@{searchresult}" method="GET" class="search-form">
+    <input name="mangasearch" type="text" placeholder="Search For Your Manga" class="search-input"/>
+    <input type="submit" class="search-submit"/>
+</form>
+</body>
+</html>
