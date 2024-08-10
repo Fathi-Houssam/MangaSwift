@@ -306,7 +306,7 @@ public class ServiceAPI {
                                         break;
                                     }
                                 }
-                                System.out.println(mangaId);
+
                                 chapterImg.setChapterNumber(rootNode.path("data").path("attributes").path("chapter").asText());
                                 chapterImg.setNumberOfImages(rootNode.path("data").path("attributes").path("pages").asInt());
 
@@ -341,16 +341,35 @@ public class ServiceAPI {
                                                     JsonNode chaptersRootNode = objectMapper.readTree(chaptersResponse);
                                                     JsonNode chaptersDataNode = chaptersRootNode.path("data");
 
-                                                    List<Float> allChapters = new ArrayList<>();
+                                                    HashMap<String, String> allChapters = new LinkedHashMap<>();
                                                     for (JsonNode chapterNode : chaptersDataNode) {
                                                         String chapterNumberStr = chapterNode.path("attributes").path("chapter").asText();
-                                                        if (chapterNumberStr != null && !chapterNumberStr.isEmpty()) {
-                                                            allChapters.add(Float.parseFloat(chapterNumberStr));
+                                                        String chapterId = chapterNode.path("id").asText();
+
+                                                        if (chapterNumberStr == null || chapterNumberStr.isEmpty() || chapterNumberStr.equals("null")) {
+                                                            allChapters.put("Oneshot", chapterId);
+                                                        } else {
+                                                            try {
+                                                                float chapterNumber = Float.parseFloat(chapterNumberStr);
+                                                                if (chapterNumber == Math.floor(chapterNumber)) {
+                                                                    allChapters.put(String.valueOf((int) chapterNumber), chapterId); // Convert to int if no decimals
+                                                                } else {
+                                                                    allChapters.put(chapterNumberStr, chapterId); // Keep as float string if it has decimals
+                                                                }
+                                                            } catch (NumberFormatException e) {
+                                                                allChapters.put("Oneshot", chapterId);
+                                                            }
                                                         }
                                                     }
-
-                                                    Collections.sort(allChapters);
-
+                                                    allChapters = allChapters.entrySet().stream()
+                                                            .sorted(Map.Entry.comparingByKey(Comparator.comparingDouble(Double::parseDouble)))
+                                                            .collect(Collectors.toMap(
+                                                                    Map.Entry::getKey,
+                                                                    Map.Entry::getValue,
+                                                                    (oldValue, newValue) -> oldValue,
+                                                                    LinkedHashMap::new
+                                                            ));
+                                                    // Sort the chapters map based on the chapter keys (numbers)
                                                     chapterImg.setAllChapters(allChapters);
 
                                                     return Mono.just(chapterImg);

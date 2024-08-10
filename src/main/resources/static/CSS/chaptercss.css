@@ -85,3 +85,7 @@ p {
 .chapter-table td {
     font-weight: 400;
 }
+.chapter-table tr:hover {
+    background-color: #3a3f44;
+}
+
