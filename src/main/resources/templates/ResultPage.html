@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<img src="https://via.placeholder.com/300x150" alt="Placeholder Image" id="image-logo">
 <div th:if="${mangas != null}" class="manga-container">
     <ul>
         <li th:each="manga : ${mangas}" class="manga-item" th:attr="data-id=${manga.id}">
@@ -32,12 +33,17 @@
     <p>No results found.</p>
 </div>
 <script>
+
     function redirectToChapterPage(mangaId) {
         window.location.href = '/chapter?mangaId=' + mangaId;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+        const homepage = document.getElementById("image-logo");
         const mangaItems = document.querySelectorAll('.manga-item');
+        homepage.addEventListener("click",()=>{
+            window.location.href = '/';
+        })
         mangaItems.forEach(item => {
             item.addEventListener('click', (event) => {
                 const mangaId = event.currentTarget.getAttribute('data-id');

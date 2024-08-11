@@ -89,3 +89,9 @@ p {
     background-color: #3a3f44;
 }
 
+#image-logo{
+    position: relative;
+    right: 700px;
+    cursor: pointer;
+}
+

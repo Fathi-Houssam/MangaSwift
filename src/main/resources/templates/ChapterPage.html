@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<img src="https://via.placeholder.com/150x150" alt="Placeholder Image" id="image-logo">
 <div class="container">
     <div class="manga-info">
         <img th:src="'https://uploads.mangadex.org/covers/' + ${mangaid} + '/' + ${detail.coverURL} + '.512.jpg'" alt="Cover Image" class="manga-cover">
@@ -49,7 +50,10 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const chapterItems = document.querySelectorAll('.chapter-item');
-
+        const homepage = document.getElementById("image-logo");
+        homepage.addEventListener("click",()=>{
+            window.location.href= '/';
+        })
         chapterItems.forEach(item => {
             item.addEventListener('click', function () {
                 const chapterId = this.getAttribute('data-id');

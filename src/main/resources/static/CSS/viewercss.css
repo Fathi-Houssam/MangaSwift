@@ -76,3 +76,7 @@ img#manga-image {
         font-size: 0.8em;
     }
 }
+#manga-image{
+    cursor:pointer;
+}
+

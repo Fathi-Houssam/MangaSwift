@@ -88,8 +88,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             preloadImages();  // Preload all images for the chapter
             loadPage(1);      // Load the first page
-        });
 
+            document.getElementById('manga-image').addEventListener('click', function() {
+                navigatePage(1);  // Go to the next page on image click
+            });
+        });
     </script>
 </head>
 <body>
