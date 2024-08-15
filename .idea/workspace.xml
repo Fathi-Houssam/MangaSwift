@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Finished the V1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ConfigFiles/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="started building an authentication system for future feature.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ConfigFiles/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ConfigFiles/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/Controllertest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ServiceAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/chaptercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/Controllers/Controllertest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ServiceAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +46,12 @@
     &quot;assignee&quot;: &quot;molLbach&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="d55e2bdd-25e8-44ba-b8bd-6dcf2a57f67e" />
-        <option name="url" value="https://github.com/molLbach/MangaSlay" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/molLbach/MangaSlay&quot;,
+    &quot;accountId&quot;: &quot;d55e2bdd-25e8-44ba-b8bd-6dcf2a57f67e&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -96,6 +93,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -157,7 +159,26 @@
       <workItem from="1723379419380" duration="15000" />
       <workItem from="1723382373745" duration="163000" />
       <workItem from="1723386710014" duration="1021000" />
-      <workItem from="1723391179470" duration="3922000" />
+      <workItem from="1723391179470" duration="5155000" />
+      <workItem from="1723455689520" duration="5150000" />
+      <workItem from="1723462792751" duration="983000" />
+      <workItem from="1723464100684" duration="2320000" />
+      <workItem from="1723473784432" duration="1390000" />
+      <workItem from="1723532342728" duration="9580000" />
+      <workItem from="1723557290116" duration="2070000" />
+      <workItem from="1723567948755" duration="5065000" />
+      <workItem from="1723573152575" duration="265000" />
+      <workItem from="1723585040722" duration="1489000" />
+      <workItem from="1723635149577" duration="8582000" />
+      <workItem from="1723644486099" duration="86000" />
+      <workItem from="1723645216778" duration="398000" />
+      <workItem from="1723646360858" duration="258000" />
+      <workItem from="1723650737154" duration="40000" />
+      <workItem from="1723666832105" duration="2000" />
+      <workItem from="1723717957632" duration="55000" />
+      <workItem from="1723725070537" duration="3520000" />
+      <workItem from="1723730600226" duration="170000" />
+      <workItem from="1723735633583" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="Finished the chapter selection page, as well as started working on the chapter view">
       <option name="closed" value="true" />
@@ -191,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723313198528</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="started building an authentication system for future feature.">
+      <option name="closed" value="true" />
+      <created>1723396901801</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723396901801</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +252,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished the chapter selection page, as well as started working on the chapter view" />
     <MESSAGE value="Finished the V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the V1" />
+    <MESSAGE value="started building an authentication system for future feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="started building an authentication system for future feature." />
   </component>
 </project>

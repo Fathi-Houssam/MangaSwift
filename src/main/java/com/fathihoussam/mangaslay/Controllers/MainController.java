@@ -1,9 +1,10 @@
 package com.fathihoussam.mangaslay.Controllers;
 
-import com.fathihoussam.mangaslay.MangaClasses.ChapterImage;
+
 import com.fathihoussam.mangaslay.MangaClasses.Manga;
 import com.fathihoussam.mangaslay.MangaClasses.MangaDetails;
-import com.fathihoussam.mangaslay.ServiceAPI;
+import com.fathihoussam.mangaslay.Services.ServiceAPI;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,17 +18,23 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
-public class Controllertest {
+public class MainController {
 
     private final ServiceAPI serviceAPI;
 
     @Autowired
-    public Controllertest(ServiceAPI serviceAPI) {
+    public MainController(ServiceAPI serviceAPI) {
         this.serviceAPI = serviceAPI;
     }
 
     @GetMapping("/")
-    public String hello() {
+    public String hello(Model model, HttpSession session) {
+        String sessionId = (String) session.getAttribute("sessionId");
+
+        if (sessionId != null) {
+            model.addAttribute("sessionId", sessionId);
+        }
+
         return "IndexPage";
     }
 

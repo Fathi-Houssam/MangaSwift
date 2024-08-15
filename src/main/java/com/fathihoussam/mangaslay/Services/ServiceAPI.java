@@ -1,4 +1,4 @@
-package com.fathihoussam.mangaslay;
+package com.fathihoussam.mangaslay.Services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fathihoussam.mangaslay.MangaClasses.*;
