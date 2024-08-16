@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 public class AuthController {
 
@@ -40,15 +41,17 @@ public class AuthController {
         try {
             userService.loginUser(username, password);
 
-            // Set session ID after successful login
-            session.setAttribute("sessionId", session.getId());
-            session.setAttribute("username", username);
 
-            return "redirect:/"; // Redirect to root after successful login
+            return "redirect:/";
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
-            return "IndexPage"; // Show error message on the same page
+            return "redirect:/";
         }
+    }
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 
 

@@ -94,4 +94,7 @@ p {
     right: 700px;
     cursor: pointer;
 }
+.chapter-item {
+    cursor: pointer;
+}
 

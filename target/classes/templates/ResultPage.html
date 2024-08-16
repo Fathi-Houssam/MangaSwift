@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link th:href="@{/css/resultcss.css}" rel="stylesheet">
     <title>Search Results</title>
-    <style>
-        .manga-item {
-            cursor: pointer;
-        }
-    </style>
+    
 </head>
 <body>
 <img src="https://via.placeholder.com/300x150" alt="Placeholder Image" id="image-logo">
@@ -25,10 +21,13 @@
                 <div class="manga-tags">
                     <span th:each="tag : ${manga.tags}" class="tag" th:text="${tag}"></span>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
-                    <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1z"/>
-                    <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1"/>
-                </svg>
+                <button id="savebtn" th:value="${manga.id}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
+                        <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1z"/>
+                        <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1"/>
+                    </svg>
+                </button>
+
 
             </div>
         </li>
@@ -37,18 +36,39 @@
 <div th:if="${mangas == null}">
     <p>No results found.</p>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-
     function redirectToChapterPage(mangaId) {
         window.location.href = '/chapter?mangaId=' + mangaId;
     }
 
+    function sendThefknData(mangaId) {
+        axios.post('/saveManga', {
+            mangaId: mangaId
+        })
+            .then(response => {
+                console.log('Manga saved successfully:', response.data);
+            })
+            .catch(error => {
+                console.error('There was an error saving the manga:', error);
+            });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        const savebtn = document.querySelectorAll("#savebtn")
+        savebtn.forEach(item => {
+            item.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevents triggering the redirect
+                const mangaId = event.currentTarget.getAttribute('value');
+                sendThefknData(mangaId);
+            });
+        });
+
         const homepage = document.getElementById("image-logo");
         const mangaItems = document.querySelectorAll('.manga-item');
-        homepage.addEventListener("click",()=>{
+        homepage.addEventListener("click", () => {
             window.location.href = '/';
-        })
+        });
         mangaItems.forEach(item => {
             item.addEventListener('click', (event) => {
                 const mangaId = event.currentTarget.getAttribute('data-id');
@@ -57,5 +77,6 @@
         });
     });
 </script>
+
 </body>
 </html>

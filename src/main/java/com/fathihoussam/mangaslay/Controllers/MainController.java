@@ -1,18 +1,18 @@
 package com.fathihoussam.mangaslay.Controllers;
-
-
 import com.fathihoussam.mangaslay.MangaClasses.Manga;
 import com.fathihoussam.mangaslay.MangaClasses.MangaDetails;
+import com.fathihoussam.mangaslay.Repository.UserMangaInfo;
 import com.fathihoussam.mangaslay.Services.ServiceAPI;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import reactor.core.publisher.Mono;
-
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -21,20 +21,16 @@ import java.util.stream.IntStream;
 public class MainController {
 
     private final ServiceAPI serviceAPI;
+    private final UserMangaInfo usermangainfo;
 
     @Autowired
-    public MainController(ServiceAPI serviceAPI) {
+    public MainController(ServiceAPI serviceAPI, UserMangaInfo userMangaInfo) {
         this.serviceAPI = serviceAPI;
+        this.usermangainfo = userMangaInfo;
     }
 
     @GetMapping("/")
-    public String hello(Model model, HttpSession session) {
-        String sessionId = (String) session.getAttribute("sessionId");
-
-        if (sessionId != null) {
-            model.addAttribute("sessionId", sessionId);
-        }
-
+    public String hello() {
         return "IndexPage";
     }
 
@@ -65,6 +61,25 @@ public class MainController {
                     model.addAttribute("range", IntStream.rangeClosed(1, chapterImage.getNumberOfImages()).boxed().collect(Collectors.toList()));
                 })
                 .then(Mono.just("ViewerPage"));
+    }
+
+    @PostMapping("/saveManga")
+    public ResponseEntity<String> saveManga(@RequestParam("mangaId") String mangaId, HttpSession session) {
+        try {
+            Long userId = (Long) session.getAttribute("userId");
+            if (userId == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in.");
+            }
+
+            System.out.println("Manga ID: " + mangaId);
+            System.out.println("User ID from session: " + userId);
+
+            usermangainfo.insertUserMangas(userId, mangaId);
+
+            return ResponseEntity.ok("Manga saved successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error saving manga: " + e.getMessage());
+        }
     }
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
             const hash = /*[[${details2.hash}]]*/ 'hashPlaceholder';
             const dataSaver = /*[[${details2.dataSaver}]]*/ ['image1.jpg', 'image2.jpg'];
 
-            dataSaver.forEach((image, index) => {
+            dataSaver.forEach((image) => {
                 const img = new Image();
                 img.src = `${baseUrl}/data-saver/${hash}/${image}`;
             });
@@ -25,8 +25,7 @@
             const dataSaver = /*[[${details2.dataSaver}]]*/ ['image1.jpg', 'image2.jpg'];
 
             if (pageNumber > 0 && pageNumber <= dataSaver.length) {
-                const imageUrl = `${baseUrl}/data-saver/${hash}/${dataSaver[pageNumber - 1]}`;
-                document.getElementById('manga-image').src = imageUrl;
+                document.getElementById('manga-image').src = `${baseUrl}/data-saver/${hash}/${dataSaver[pageNumber - 1]}`;
                 document.getElementById('page-select').value = pageNumber;
             } else {
                 console.error('Invalid page number:', pageNumber);
@@ -98,7 +97,7 @@
 <body>
 <div class="container">
     <div class="navigation-bar">
-        <select id="chapter-select" onchange="changeChapter()">
+        <label for="chapter-select"></label><select id="chapter-select" onchange="changeChapter()">
             <option th:each="entry : ${details2.allChapters.entrySet()}"
                     th:value="${entry.value}"
                     th:text="${entry.key}"
@@ -107,7 +106,7 @@
         </select>
         <div class="navigation-buttons">
             <button type="button" onclick="navigatePage(-1)">Previous</button>
-            <select id="page-select" onchange="changePage()">
+            <label for="page-select"></label><select id="page-select" onchange="changePage()">
                 <option th:each="i : ${#numbers.sequence(1, details2.numberOfImages)}" th:value="${i}" th:text="${i}" th:selected="${i == 1}"></option>
             </select>
             <button type="button" onclick="navigatePage(1)">Next</button>

@@ -47,14 +47,13 @@ public class UserService {
             throw new Exception("Wrong password");
 
         }
+
         session.setAttribute("userId", user.getId());
         session.setAttribute("username", user.getUsername());
 
 
     }
-    public void logoutUser(){
-        session.invalidate();
-    }
+
 
 
 }
