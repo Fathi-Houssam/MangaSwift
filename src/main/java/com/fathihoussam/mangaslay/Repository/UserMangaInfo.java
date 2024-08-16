@@ -7,10 +7,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface UserMangaInfo extends JpaRepository<UserMangas, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO users_manga (user_id, manga_id) VALUES (:userId, :mangaId)", nativeQuery = true)
+    @Query(value = "INSERT INTO user_mangas (user_id, manga_id) VALUES (:userId, :mangaId)", nativeQuery = true)
     void insertUserMangas(@Param("userId") Long userId, @Param("mangaId") String mangaId);
+
+
+    @Query("SELECT um.mangaId FROM UserMangas um WHERE um.user.id = :userId")
+    List<String> findMangaIdByUserId(@Param("userId") Long userId);
+
 }

@@ -4,43 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Completed basic signup and login system">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserMangaInfo.java" afterDir="false" />
+    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Added some updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ConfigFiles/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/ConfigFiles/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserMangaInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserMangaInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/ObjectMapperConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/ObjectMapperConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/VolumesDeserializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/VolumesDeserializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/WebClientConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/ConfigFiles/WebClientConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse$Chapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse$Chapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse$Volume.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse$Volume.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/AggregatedResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/Chapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/Chapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/ChapterImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/ChapterImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/Manga.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/Manga.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes$Tag$TagAttributes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes$Tag$TagAttributes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes$Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes$Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$DataAttributes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$Relationship$RelationshipAttributes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$Relationship$RelationshipAttributes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$Relationship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data$Relationship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse$Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaClasses/MangaResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaSlayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fathihoussam/mangaslay/MangaSlayApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/chaptercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +177,8 @@
       <workItem from="1723735633583" duration="7065000" />
       <workItem from="1723749654064" duration="848000" />
       <workItem from="1723801315828" duration="355000" />
-      <workItem from="1723804950775" duration="12612000" />
+      <workItem from="1723804950775" duration="15862000" />
+      <workItem from="1723827765406" duration="13463000" />
     </task>
     <task id="LOCAL-00001" summary="Finished the chapter selection page, as well as started working on the chapter view">
       <option name="closed" value="true" />
@@ -260,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723737193833</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added some updates">
+      <option name="closed" value="true" />
+      <created>1723821648858</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821648858</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +278,7 @@
     <MESSAGE value="Finished the V1" />
     <MESSAGE value="started building an authentication system for future feature." />
     <MESSAGE value="Completed basic signup and login system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed basic signup and login system" />
+    <MESSAGE value="Added some updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some updates" />
   </component>
 </project>

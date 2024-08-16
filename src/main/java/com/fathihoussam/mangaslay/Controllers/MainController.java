@@ -30,7 +30,13 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String hello() {
+    public String hello(HttpSession session, Model model) {
+        Long userId = (Long) session.getAttribute("userId");
+
+        // Call the method on the repository instance
+        List<String> libraryMangaIds = usermangainfo.findMangaIdByUserId(userId);
+        List<Manga> mangas = serviceAPI.libraryMangas(libraryMangaIds).block();
+        model.addAttribute("librarymangas", mangas);
         return "IndexPage";
     }
 
@@ -71,8 +77,6 @@ public class MainController {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in.");
             }
 
-            System.out.println("Manga ID: " + mangaId);
-            System.out.println("User ID from session: " + userId);
 
             usermangainfo.insertUserMangas(userId, mangaId);
 

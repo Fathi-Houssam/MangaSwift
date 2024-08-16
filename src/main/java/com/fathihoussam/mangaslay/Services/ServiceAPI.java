@@ -387,6 +387,60 @@ public class ServiceAPI {
                 );
     }
 
+    public Mono<List<Manga>> libraryMangas(List<String> mangaIds) {
+        ObjectMapper objectMapper = new ObjectMapper();
 
+        List<Mono<Manga>> mangaMonos = mangaIds.stream()
+                .map(mangaId -> {
+                    String url = UriComponentsBuilder.fromUriString("https://api.mangadex.org/manga/{id}")
+                            .queryParam("includes[]", "cover_art")
+                            .buildAndExpand(mangaId)
+                            .toUriString();
+
+                    return webClient.get()
+                            .uri(url)
+                            .header(HttpHeaders.USER_AGENT, "mangaslay/1.0")
+                            .accept(MediaType.APPLICATION_JSON)
+                            .retrieve()
+                            .bodyToMono(String.class)
+                            .map(response -> {
+                                try {
+                                    // Parse the response to a JsonNode
+                                    JsonNode rootNode = objectMapper.readTree(response);
+
+                                    // Extract data node
+                                    JsonNode dataNode = rootNode.path("data");
+
+                                    // Extract the relevant fields
+                                    String id = dataNode.path("id").asText();
+                                    String title = dataNode.path("attributes").path("title").path("en").asText();
+                                    String coverFile = dataNode.path("relationships").findValues("attributes").stream()
+                                            .filter(node -> node.has("fileName"))
+                                            .findFirst()
+                                            .map(node -> node.path("fileName").asText())
+                                            .orElse(null);
+
+                                    // Create and populate Manga object
+                                    Manga manga = new Manga();
+                                    manga.setId(id);
+                                    manga.setTitle(title);
+                                    manga.setCoverFile(coverFile);
+
+                                    return manga;
+                                } catch (Exception e) {
+                                    // Handle the exception (you might want to log it)
+                                    return null;
+                                }
+                            });
+                })
+                .collect(Collectors.toList());
+
+        // Zip the Monos into a Mono<List<Manga>>
+        return Mono.zip(mangaMonos, objects ->
+                Arrays.stream(objects)
+                        .map(object -> (Manga) object)
+                        .collect(Collectors.toList())
+        );
+    }
 
 }

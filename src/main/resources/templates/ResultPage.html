@@ -43,8 +43,7 @@
     }
 
     function sendThefknData(mangaId) {
-        axios.post('/saveManga', {
-            mangaId: mangaId
+        axios.post('/saveManga?mangaId='+mangaId, {
         })
             .then(response => {
                 console.log('Manga saved successfully:', response.data);

@@ -62,6 +62,18 @@
     <input type="hidden"/>
     <input type="submit">
 </form>
+
+<<ul>
+    <li th:each="manga : ${librarymangas}">
+        <div>
+            <p>title: <span th:text="${manga.title}"></span></p>
+            <p>CoverFile: <span th:text="${manga.coverFile}"></span></p>
+            <p>id: <span th:text="${manga.id}"></span></p>
+
+        </div>
+    </li>
+</ul>
+
 <script>
     // Get the modal
     const modal = document.getElementById("signupModal");
