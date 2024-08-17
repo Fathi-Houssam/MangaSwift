@@ -20,4 +20,9 @@ public interface UserMangaInfo extends JpaRepository<UserMangas, String> {
     @Query("SELECT um.mangaId FROM UserMangas um WHERE um.user.id = :userId")
     List<String> findMangaIdByUserId(@Param("userId") Long userId);
 
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM UserMangas um WHERE um.mangaId = :mangaId AND um.user.id = :userId")
+    void deleteByMangaId(@Param("mangaId") String mangaId, @Param("userId") Long userId);
 }

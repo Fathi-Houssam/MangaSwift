@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Added some updates">
+    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Finished the library functionality ground work only somethings and styling remains.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/indexpage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserMangaInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserMangaInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" afterDir="false" />
@@ -179,6 +179,10 @@
       <workItem from="1723801315828" duration="355000" />
       <workItem from="1723804950775" duration="15862000" />
       <workItem from="1723827765406" duration="13463000" />
+      <workItem from="1723847814108" duration="111000" />
+      <workItem from="1723892483802" duration="307000" />
+      <workItem from="1723901893506" duration="14740000" />
+      <workItem from="1723923049579" duration="7431000" />
     </task>
     <task id="LOCAL-00001" summary="Finished the chapter selection page, as well as started working on the chapter view">
       <option name="closed" value="true" />
@@ -244,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723821648858</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finished the library functionality ground work only somethings and styling remains.">
+      <option name="closed" value="true" />
+      <created>1723847907428</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723847907428</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +291,7 @@
     <MESSAGE value="started building an authentication system for future feature." />
     <MESSAGE value="Completed basic signup and login system" />
     <MESSAGE value="Added some updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some updates" />
+    <MESSAGE value="Finished the library functionality ground work only somethings and styling remains." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the library functionality ground work only somethings and styling remains." />
   </component>
 </project>

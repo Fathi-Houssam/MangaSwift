@@ -85,7 +85,16 @@ public class MainController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error saving manga: " + e.getMessage());
         }
     }
-
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteMangaById(@RequestParam("mangaId") String mangaId, HttpSession session) {
+        try {
+            Long userId = (Long) session.getAttribute("userId");
+            usermangainfo.deleteByMangaId(mangaId, userId);
+            return ResponseEntity.ok("Manga deleted successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error deleting manga: " + e.getMessage());
+        }
+    }
 
 }
 

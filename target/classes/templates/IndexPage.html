@@ -5,21 +5,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <title>MangaSlay</title>
-    <link th:href="@{/css/resultcss.css}" rel="stylesheet">
-
+    <title>MangaSwift</title>
+    <link th:href="@{/css/indexpage.css}" rel="stylesheet">
 </head>
 <body>
 
-<h1>MangaSlay</h1>
-
-<form th:action="@{searchresult}" method="GET" class="search-form">
-    <input name="mangasearch" type="text" placeholder="Search For Your Manga" class="search-input"/>
-    <input type="submit" class="search-submit"/>
-</form>
-
-<!-- Signup Button -->
-<button id="signupBtn">Sign Up</button>
+<!-- Header Section with Search Bar and User Info -->
+<div class="header">
+    <form th:action="@{searchresult}" method="GET" class="search-form">
+        <input name="mangasearch" type="text" placeholder="Search For Your Manga" class="search-input"/>
+    </form>
+    <div class="user-info">
+        <span th:if="${session.username}" th:text="'Hello, ' + ${session.username}"></span>
+        <form th:if="${session.username}" method="POST" th:action="@{/logout}">
+            <button id="logoutBtn">Logout</button>
+        </form>
+        <button th:if="${session.username == null}" id="signupBtn">Sign Up</button>
+    </div>
+</div>
 
 <!-- Signup/Login Modal -->
 <div id="signupModal" class="modal">
@@ -42,7 +45,7 @@
         </div>
 
         <!-- Login Form -->
-        <div id="loginForm">
+        <div id="loginForm" style="display: none;">
             <h2>Login</h2>
             <form th:action="@{/login}" method="post">
                 <label for="username">Username:</label><br>
@@ -55,71 +58,95 @@
         </div>
     </div>
 </div>
-<p style="color:red" th:if="${session.userId != null}">
-    <span th:text="${session.userId}"></span>
-</p>
-<form method="post" th:action="@{/logout}">
-    <input type="hidden"/>
-    <input type="submit">
-</form>
 
-<<ul>
+<h1 style="margin-left: 255px">Your Library:</h1>
+<p style="margin-left: 700px; margin-top: 200px" th:if="${session.username == null}">Login to save your favorite Mangas!</p>
+<ul class="manga-list">
     <li th:each="manga : ${librarymangas}">
-        <div>
-            <p>Id: <span th:text="${manga.title}"></span></p>
-            <p>CoverFile: <span th:text="${manga.coverFile}"></span></p>
-            <p>TITLE: <span th:text="${manga.id}"></span></p>
-
+        <div class="manga-item" th:value="${manga.id}">
+            <img th:src="'https://uploads.mangadex.org/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'" alt="Cover Image" class="manga-image">
+            <h3 th:text="${manga.title}" class="manga-title"></h3>
+            <button class="deleteBtn" th:value="${manga.id}">DELETE</button>
         </div>
     </li>
 </ul>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    // Get the modal
     const modal = document.getElementById("signupModal");
-
-    // Get the buttons that open the modal and toggle forms
     const signupBtn = document.getElementById("signupBtn");
     const showLoginForm = document.getElementById("showLoginForm");
     const showSignupForm = document.getElementById("showSignupForm");
-
-    // Get the <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
-
-    // Get the forms
     const signupForm = document.getElementById("signupForm");
     const loginForm = document.getElementById("loginForm");
 
-    // When the user clicks the sign-up button, open the modal with the signup form
-    signupBtn.onclick = function() {
-        modal.style.display = "block";
-        signupForm.style.display = "block";
-        loginForm.style.display = "none";
+    // Initially hide the modal
+    modal.style.display = "none";
+
+    if (signupBtn) {
+        signupBtn.onclick = function() {
+            modal.style.display = "block";
+            signupForm.style.display = "block";
+            loginForm.style.display = "none";
+        }
     }
 
-    // When the user clicks the "Already Have an Account?" button, show the login form
     showLoginForm.onclick = function() {
         signupForm.style.display = "none";
         loginForm.style.display = "block";
     }
 
-    // When the user clicks the "Don't Have an Account?" button, show the signup form
     showSignupForm.onclick = function() {
         loginForm.style.display = "none";
         signupForm.style.display = "block";
     }
 
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
-    // When the user clicks anywhere outside the modal, close it
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
     }
+
+    function goToChapterPage(mangaId){
+        window.location.href = '/chapter?mangaId=' + mangaId;
+    }
+
+    function deleteManga(mangaId) {
+        axios.post('/delete?mangaId=' + mangaId)
+            .then(response => {
+                console.log('Manga deleted successfully:', response.data);
+                location.reload();
+
+            })
+            .catch(error => {
+                console.error('There was an error deleting the manga:', error);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const mangaItems = document.querySelectorAll(".manga-item");
+        mangaItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const mangaId = item.getAttribute('value');
+                goToChapterPage(mangaId);
+            });
+        });
+
+        const deleteBtns = document.querySelectorAll(".deleteBtn");
+        deleteBtns.forEach(button => {
+            button.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent triggering click on the parent item
+                const mangaId = button.getAttribute('value');
+                deleteManga(mangaId);
+            });
+        });
+    });
+
 </script>
 
 </body>
