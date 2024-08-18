@@ -6,9 +6,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link th:href="@{/css/resultcss.css}" rel="stylesheet">
     <title>Search Results</title>
-    
+
 </head>
 <body>
+<div class="header">
+    <form th:action="@{searchresult}" method="GET" class="search-form">
+        <input name="mangasearch" type="text" placeholder="Search For Your Manga" class="search-input"/>
+    </form>
+    <div class="user-info">
+        <span th:if="${session.username}" th:text="'Hello, ' + ${session.username}"></span>
+        <form th:if="${session.username}" method="POST" th:action="@{/logout}">
+            <button id="logoutBtn">Logout</button>
+        </form>
+        <button th:if="${session.username == null}" id="signupBtn">Sign Up</button>
+    </div>
+</div>
+
+<!-- Signup/Login Modal -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <!-- Signup Form -->
+        <div id="signupForm">
+            <h2>Sign Up</h2>
+            <form th:action="@{/signup}" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Sign Up">
+            </form>
+            <button id="showLoginForm">Already Have an Account?</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" style="display: none;">
+            <h2>Login</h2>
+            <form th:action="@{/login}" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="loginUsername" name="username" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="loginPassword" name="password" required><br>
+                <input type="submit" value="Login">
+            </form>
+            <button id="showSignupForm">Don't Have an Account?</button>
+        </div>
+    </div>
+</div>
+
 <img src="https://via.placeholder.com/300x150" alt="Placeholder Image" id="image-logo">
 <div th:if="${mangas != null}" class="manga-container">
     <ul>
@@ -73,6 +121,49 @@
             });
         });
     });
+
+    const modal = document.getElementById("signupModal");
+    const signupBtn = document.getElementById("signupBtn");
+    const showLoginForm = document.getElementById("showLoginForm");
+    const showSignupForm = document.getElementById("showSignupForm");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+
+    // Hide modal initially
+    modal.style.display = "none";
+
+    // Show signup modal when the "Sign Up" button is clicked
+    if (signupBtn) {
+        signupBtn.onclick = function() {
+            modal.style.display = "block";
+            signupForm.style.display = "block";
+            loginForm.style.display = "none";
+        }
+    }
+
+    // Toggle between signup and login forms
+    showLoginForm.onclick = function() {
+        signupForm.style.display = "none";
+        loginForm.style.display = "block";
+    }
+
+    showSignupForm.onclick = function() {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+    }
+
+    // Close the modal when the close button is clicked
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal if the user clicks outside of the modal content
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 
 </body>
