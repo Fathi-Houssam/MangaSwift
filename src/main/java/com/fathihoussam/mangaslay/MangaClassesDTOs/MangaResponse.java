@@ -1,4 +1,4 @@
-package com.fathihoussam.mangaslay.MangaClasses;
+package com.fathihoussam.mangaslay.MangaClassesDTOs;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

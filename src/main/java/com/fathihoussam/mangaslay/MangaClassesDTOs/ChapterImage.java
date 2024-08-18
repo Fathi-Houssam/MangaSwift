@@ -1,4 +1,4 @@
-package com.fathihoussam.mangaslay.MangaClasses;
+package com.fathihoussam.mangaslay.MangaClassesDTOs;
 
 import java.util.HashMap;
 import java.util.List;
@@ -94,7 +94,7 @@ public class ChapterImage {
         }
 
         // Remove the last ", " if present
-        if (formattedChapters.length() > 0) {
+        if (!formattedChapters.isEmpty()) {
             formattedChapters.setLength(formattedChapters.length() - 2);
         }
 

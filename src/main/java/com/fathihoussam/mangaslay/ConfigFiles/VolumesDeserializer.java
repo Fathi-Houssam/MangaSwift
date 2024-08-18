@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fathihoussam.mangaslay.MangaClasses.AggregatedResponse.Volume;
-import com.fathihoussam.mangaslay.MangaClasses.AggregatedResponse.Chapter;
+import com.fathihoussam.mangaslay.MangaClassesDTOs.AggregatedResponse.Volume;
+import com.fathihoussam.mangaslay.MangaClassesDTOs.AggregatedResponse.Chapter;
 
 import java.io.IOException;
 import java.util.HashMap;

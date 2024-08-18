@@ -1,7 +1,6 @@
 package com.fathihoussam.mangaslay.Services;
 
 import com.fathihoussam.mangaslay.Entity.User;
-import com.fathihoussam.mangaslay.Repository.UserMangaInfo;
 import com.fathihoussam.mangaslay.Repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.crypto.password.PasswordEncoder;

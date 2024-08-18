@@ -1,6 +1,6 @@
 package com.fathihoussam.mangaslay.Controllers;
-import com.fathihoussam.mangaslay.MangaClasses.Manga;
-import com.fathihoussam.mangaslay.MangaClasses.MangaDetails;
+import com.fathihoussam.mangaslay.MangaClassesDTOs.Manga;
+import com.fathihoussam.mangaslay.MangaClassesDTOs.MangaDetails;
 import com.fathihoussam.mangaslay.Repository.UserMangaInfo;
 import com.fathihoussam.mangaslay.Services.ServiceAPI;
 import jakarta.servlet.http.HttpSession;

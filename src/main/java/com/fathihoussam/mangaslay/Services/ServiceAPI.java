@@ -1,7 +1,7 @@
 package com.fathihoussam.mangaslay.Services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fathihoussam.mangaslay.MangaClasses.*;
+import com.fathihoussam.mangaslay.MangaClassesDTOs.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -361,15 +361,35 @@ public class ServiceAPI {
                                                             }
                                                         }
                                                     }
+
+                                                    // Updated sorting logic
                                                     allChapters = allChapters.entrySet().stream()
-                                                            .sorted(Map.Entry.comparingByKey(Comparator.comparingDouble(Double::parseDouble)))
+                                                            .sorted((entry1, entry2) -> {
+                                                                String key1 = entry1.getKey();
+                                                                String key2 = entry2.getKey();
+
+                                                                // Handle "Oneshot" to always come first or last, depending on your preference
+                                                                if (key1.equalsIgnoreCase("Oneshot")) {
+                                                                    return -1; // "Oneshot" comes before numeric chapters
+                                                                } else if (key2.equalsIgnoreCase("Oneshot")) {
+                                                                    return 1; // "Oneshot" comes before numeric chapters
+                                                                }
+
+                                                                // Parse keys as doubles for numeric comparison
+                                                                try {
+                                                                    return Double.compare(Double.parseDouble(key1), Double.parseDouble(key2));
+                                                                } catch (NumberFormatException e) {
+                                                                    // Handle non-numeric keys if necessary
+                                                                    return key1.compareTo(key2);
+                                                                }
+                                                            })
                                                             .collect(Collectors.toMap(
                                                                     Map.Entry::getKey,
                                                                     Map.Entry::getValue,
                                                                     (oldValue, newValue) -> oldValue,
-                                                                    LinkedHashMap::new
+                                                                    LinkedHashMap::new // Maintain insertion order
                                                             ));
-                                                    // Sort the chapters map based on the chapter keys (numbers)
+
                                                     chapterImg.setAllChapters(allChapters);
 
                                                     return Mono.just(chapterImg);
@@ -387,6 +407,7 @@ public class ServiceAPI {
                 );
     }
 
+
     public Mono<List<Manga>> libraryMangas(List<String> mangaIds) {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -403,7 +424,7 @@ public class ServiceAPI {
                             .accept(MediaType.APPLICATION_JSON)
                             .retrieve()
                             .bodyToMono(String.class)
-                            .map(response -> {
+                            .mapNotNull(response -> {
                                 try {
                                     // Parse the response to a JsonNode
                                     JsonNode rootNode = objectMapper.readTree(response);
