@@ -38,6 +38,7 @@ public class MainController {
         List<Manga> mangas = serviceAPI.libraryMangas(libraryMangaIds).block();
         model.addAttribute("librarymangas", mangas);
         return "IndexPage";
+
     }
 
     @GetMapping("/searchresult")

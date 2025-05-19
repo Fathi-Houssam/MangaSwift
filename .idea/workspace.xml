@@ -4,20 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="mini adjustments and bug fixes">
+    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="added a feature">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/Logo/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/indexpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/indexpage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ViewerPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,7 +57,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/molLbach/MangaSlay&quot;,
-    &quot;accountId&quot;: &quot;d55e2bdd-25e8-44ba-b8bd-6dcf2a57f67e&quot;
+    &quot;accountId&quot;: &quot;57357ea8-2185-4380-9b29-9a38fcb8e825&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -62,7 +77,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2jhwIx6D9fL5MVGRROOjOov4N5n" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,16 +91,20 @@
     &quot;HTTP Request.rest-api | #1.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ryzen/OneDrive/Desktop/mangaslay&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/hsmf/Projects/Main/mangaslay&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -96,6 +117,11 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.fathihoussam.mangaslay.MangaClasses" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/CSS" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/CSS/css" />
+      <recent name="C:\Users\ryzen\OneDrive\Desktop\mangaslay\src\main\resources\static\CSS\Logo" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MangaSlayApplication">
@@ -112,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="MangaSlayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -133,8 +159,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -187,7 +213,64 @@
       <workItem from="1723985719234" duration="269000" />
       <workItem from="1723995147176" duration="4776000" />
       <workItem from="1724005313846" duration="57000" />
-      <workItem from="1724006242073" duration="3021000" />
+      <workItem from="1724006242073" duration="3170000" />
+      <workItem from="1724169619952" duration="143000" />
+      <workItem from="1724256672920" duration="52000" />
+      <workItem from="1724513070116" duration="278000" />
+      <workItem from="1724645369181" duration="289000" />
+      <workItem from="1724645694665" duration="257000" />
+      <workItem from="1724800442396" duration="64000" />
+      <workItem from="1725146181883" duration="1000" />
+      <workItem from="1725266671141" duration="2000" />
+      <workItem from="1725357822824" duration="3000" />
+      <workItem from="1725410157685" duration="610000" />
+      <workItem from="1725718170203" duration="392000" />
+      <workItem from="1726515085027" duration="9000" />
+      <workItem from="1726774325009" duration="118000" />
+      <workItem from="1727460197132" duration="160000" />
+      <workItem from="1727535483492" duration="1092000" />
+      <workItem from="1727686077678" duration="114000" />
+      <workItem from="1731277139010" duration="168000" />
+      <workItem from="1731331289263" duration="18000" />
+      <workItem from="1731529539317" duration="2007000" />
+      <workItem from="1731645967804" duration="3000" />
+      <workItem from="1731953773491" duration="135000" />
+      <workItem from="1732096213299" duration="215000" />
+      <workItem from="1732884256810" duration="19000" />
+      <workItem from="1732884444367" duration="29000" />
+      <workItem from="1732884554117" duration="3497000" />
+      <workItem from="1733320130268" duration="15000" />
+      <workItem from="1733738975777" duration="199000" />
+      <workItem from="1733739202830" duration="117000" />
+      <workItem from="1733739817299" duration="198000" />
+      <workItem from="1734807293904" duration="596000" />
+      <workItem from="1737729184483" duration="8000" />
+      <workItem from="1738177436547" duration="30000" />
+      <workItem from="1742747466434" duration="440000" />
+      <workItem from="1747053321365" duration="145000" />
+      <workItem from="1747053607648" duration="67000" />
+      <workItem from="1747053701513" duration="9000" />
+      <workItem from="1747056334502" duration="25000" />
+      <workItem from="1747059276796" duration="11000" />
+      <workItem from="1747079143116" duration="7000" />
+      <workItem from="1747079226735" duration="38000" />
+      <workItem from="1747131646818" duration="265000" />
+      <workItem from="1747134408315" duration="44000" />
+      <workItem from="1747134502376" duration="290000" />
+      <workItem from="1747135940003" duration="2000" />
+      <workItem from="1747139863001" duration="4000" />
+      <workItem from="1747142240856" duration="13000" />
+      <workItem from="1747150523118" duration="3000" />
+      <workItem from="1747173556299" duration="119000" />
+      <workItem from="1747227313950" duration="1000" />
+      <workItem from="1747228787177" duration="15000" />
+      <workItem from="1747230867279" duration="3000" />
+      <workItem from="1747246985679" duration="7227000" />
+      <workItem from="1747308639961" duration="1526000" />
+      <workItem from="1747648810194" duration="195000" />
+      <workItem from="1747657315267" duration="195000" />
+      <workItem from="1747678936720" duration="1333000" />
+      <workItem from="1747680524783" duration="5109000" />
     </task>
     <task id="LOCAL-00001" summary="Finished the chapter selection page, as well as started working on the chapter view">
       <option name="closed" value="true" />
@@ -277,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724006805807</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added a feature">
+      <option name="closed" value="true" />
+      <created>1724009417902</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724009417902</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +406,7 @@
     <MESSAGE value="Finished the library functionality ground work only somethings and styling remains." />
     <MESSAGE value="Finished the V2, only thing left are some small details and features, but completely functional at this point." />
     <MESSAGE value="mini adjustments and bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="mini adjustments and bug fixes" />
+    <MESSAGE value="added a feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a feature" />
   </component>
 </project>

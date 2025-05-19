@@ -5,8 +5,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link th:href="@{/css/viewercss.css}" rel="stylesheet">
-    <title>Viewer Page</title>
+    <link th:href="@{/CSS/viewercss.css}" rel="stylesheet">
+    <title th:text="'Chapter ' + ${details2.chapterNumber}"></title>
     <script th:inline="javascript">
         function preloadImages() {
             const baseUrl = /*[[${details2.baseUrl}]]*/ 'baseUrlPlaceholder';

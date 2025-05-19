@@ -140,3 +140,26 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+#loginUsername{
+    margin-bottom: 0.5rem;
+}
+#loginPassword{
+    margin-bottom: 1.5rem;
+}
+#loggoff{
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#showLoginForm,#showSignupForm,#zbzob{
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}

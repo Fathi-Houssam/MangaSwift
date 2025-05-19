@@ -4,8 +4,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link th:href="@{/css/resultcss.css}" rel="stylesheet">
-    <title>Search Results</title>
+    <link th:href="@{/CSS/resultcss.css}" rel="stylesheet">
+    <title>MangaSwift - Search Results</title>
 
 </head>
 <body>
@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<img src="https://via.placeholder.com/300x150" alt="Placeholder Image" id="image-logo">
+<img src="@{/Logo/logo.png}" alt="Logo" id="image-logo">
 <div th:if="${mangas != null}" class="manga-container">
     <ul>
         <li th:each="manga : ${mangas}" class="manga-item" th:attr="data-id=${manga.id}">

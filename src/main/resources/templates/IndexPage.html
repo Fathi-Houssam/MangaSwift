@@ -6,11 +6,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <title>MangaSwift</title>
-    <link th:href="@{/css/indexpage.css}" rel="stylesheet">
+    <link th:href="@{/CSS/indexpage.css}" rel="stylesheet">
 </head>
 <body>
 
-<!-- Header Section with Search Bar and User Info -->
 <div class="header">
     <form th:action="@{searchresult}" method="GET" class="search-form">
         <input name="mangasearch" type="text" placeholder="Search For Your Manga" class="search-input"/>
@@ -24,27 +23,24 @@
     </div>
 </div>
 
-<!-- Signup/Login Modal -->
 <div id="signupModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
 
-        <!-- Signup Form -->
         <div id="signupForm">
             <h2>Sign Up</h2>
             <form th:action="@{/signup}" method="post">
                 <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br>
+                <input type="text" id="username" name="username" required style="margin-bottom: 0.5rem"><br>
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" required style="margin-bottom: 0.5rem"><br>
                 <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br><br>
-                <input type="submit" value="Sign Up">
+                <input type="password" id="password" name="password" required style="margin-bottom: 0.5rem"><br><br>
+                <input id="zbzob" type="submit" value="Sign Up" style="margin-bottom: 0.5rem">
             </form>
             <button id="showLoginForm">Already Have an Account?</button>
         </div>
 
-        <!-- Login Form -->
         <div id="loginForm" style="display: none;">
             <h2>Login</h2>
             <form th:action="@{/login}" method="post">
@@ -52,7 +48,7 @@
                 <input type="text" id="loginUsername" name="username" required><br>
                 <label for="password">Password:</label><br>
                 <input type="password" id="loginPassword" name="password" required><br>
-                <input type="submit" value="Login">
+                <input type="submit" id="loggoff" value="Login">
             </form>
             <button id="showSignupForm">Don't Have an Account?</button>
         </div>
@@ -60,7 +56,7 @@
 </div>
 
 <h1 style="margin-left: 255px">Your Library:</h1>
-<p style="margin-left: 700px; margin-top: 200px" th:if="${session.username == null}">Login to save your favorite Mangas!</p>
+<p style="margin-left: 43%; margin-top: 200px" th:if="${session.username == null}">Login to save your favorite Mangas!</p>
 <ul class="manga-list">
     <li th:each="manga : ${librarymangas}">
         <div class="manga-item" th:value="${manga.id}">
@@ -81,7 +77,6 @@
     const signupForm = document.getElementById("signupForm");
     const loginForm = document.getElementById("loginForm");
 
-    // Initially hide the modal
     modal.style.display = "none";
 
     if (signupBtn) {
@@ -140,7 +135,7 @@
         const deleteBtns = document.querySelectorAll(".deleteBtn");
         deleteBtns.forEach(button => {
             button.addEventListener("click", (event) => {
-                event.stopPropagation(); // Prevent triggering click on the parent item
+                event.stopPropagation();
                 const mangaId = button.getAttribute('value');
                 deleteManga(mangaId);
             });
