@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="added a feature">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/Logo/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea12d98d-f6c1-4509-ab7e-d7d17dc94682" name="Changes" comment="Updated some visual details.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/chaptercss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/indexpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/indexpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/resultcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/viewercss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathihoussam/mangaslay/Services/ServiceAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ChapterPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ResultPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ViewerPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/resultcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/viewercss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ChapterPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/IndexPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ResultPage.html" afterDir="false" />
@@ -56,7 +47,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/molLbach/MangaSlay&quot;,
+    &quot;url&quot;: &quot;https://github.com/Fathi-Houssam/MangaSwift&quot;,
     &quot;accountId&quot;: &quot;57357ea8-2185-4380-9b29-9a38fcb8e825&quot;
   }
 }</component>
@@ -114,6 +105,9 @@
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.fathihoussam.mangaslay.MangaClasses" />
@@ -270,7 +264,16 @@
       <workItem from="1747648810194" duration="195000" />
       <workItem from="1747657315267" duration="195000" />
       <workItem from="1747678936720" duration="1333000" />
-      <workItem from="1747680524783" duration="5109000" />
+      <workItem from="1747680524783" duration="5995000" />
+      <workItem from="1747689598590" duration="303000" />
+      <workItem from="1747689927097" duration="6000" />
+      <workItem from="1747690015857" duration="1456000" />
+      <workItem from="1747692185120" duration="185000" />
+      <workItem from="1747692430745" duration="800000" />
+      <workItem from="1747694554139" duration="1121000" />
+      <workItem from="1747699648581" duration="2631000" />
+      <workItem from="1747703353948" duration="144000" />
+      <workItem from="1747761017590" duration="3898000" />
     </task>
     <task id="LOCAL-00001" summary="Finished the chapter selection page, as well as started working on the chapter view">
       <option name="closed" value="true" />
@@ -368,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724009417902</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updated some visual details.">
+      <option name="closed" value="true" />
+      <created>1747687568864</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747687568864</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +418,7 @@
     <MESSAGE value="Finished the V2, only thing left are some small details and features, but completely functional at this point." />
     <MESSAGE value="mini adjustments and bug fixes" />
     <MESSAGE value="added a feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a feature" />
+    <MESSAGE value="Updated some visual details." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated some visual details." />
   </component>
 </project>

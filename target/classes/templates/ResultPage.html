@@ -61,7 +61,7 @@
 <div th:if="${mangas != null}" class="manga-container">
     <ul>
         <li th:each="manga : ${mangas}" class="manga-item" th:attr="data-id=${manga.id}">
-            <img th:src="'https://uploads.mangadex.org/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'" alt="Cover Image" class="manga-cover">
+            <img th:src="@{'/proxy-image/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'}" alt="Cover Image" class="manga-cover">
             <div class="manga-details">
                 <h2 th:text="${manga.title}" class="manga-title"></h2>
                 <p class="manga-chapters">Chapters: <span th:text="${manga.getFormattedChapterNumber()}"></span></p>
@@ -103,7 +103,7 @@
         const savebtn = document.querySelectorAll("#savebtn")
         savebtn.forEach(item => {
             item.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevents triggering the redirect
+                event.stopPropagation();
                 const mangaId = event.currentTarget.getAttribute('value');
                 sendThefknData(mangaId);
             });
@@ -130,10 +130,8 @@
     const signupForm = document.getElementById("signupForm");
     const loginForm = document.getElementById("loginForm");
 
-    // Hide modal initially
     modal.style.display = "none";
 
-    // Show signup modal when the "Sign Up" button is clicked
     if (signupBtn) {
         signupBtn.onclick = function() {
             modal.style.display = "block";
@@ -142,7 +140,6 @@
         }
     }
 
-    // Toggle between signup and login forms
     showLoginForm.onclick = function() {
         signupForm.style.display = "none";
         loginForm.style.display = "block";
@@ -153,12 +150,10 @@
         signupForm.style.display = "block";
     }
 
-    // Close the modal when the close button is clicked
     closeBtn.onclick = function() {
         modal.style.display = "none";
     }
 
-    // Close the modal if the user clicks outside of the modal content
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.display = "none";

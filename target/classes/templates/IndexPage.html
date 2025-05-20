@@ -60,7 +60,7 @@
 <ul class="manga-list">
     <li th:each="manga : ${librarymangas}">
         <div class="manga-item" th:value="${manga.id}">
-            <img th:src="'https://uploads.mangadex.org/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'" alt="Cover Image" class="manga-image">
+            <img th:src="@{'/proxy-image/covers/' + ${manga.id} + '/' + ${manga.coverFile} + '.256.jpg'}" alt="Cover Image" class="manga-image">
             <h3 th:text="${manga.title}" class="manga-title"></h3>
             <button class="deleteBtn" th:value="${manga.id}">DELETE</button>
         </div>

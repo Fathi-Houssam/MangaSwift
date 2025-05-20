@@ -73,7 +73,7 @@ public class ServiceAPI {
         String coverFile = data.getRelationships().stream()
                 .filter(rel -> "cover_art".equals(rel.getType()))
                 .map(rel -> rel.getAttributes().getFileName())
-                .findFirst()  // Only take the first cover file found
+                .findFirst()
                 .orElse(null);
         manga.setCoverFile(coverFile);
 
@@ -115,7 +115,6 @@ public class ServiceAPI {
                     try {
                         AggregatedResponse aggregatedResponse = objectMapper.readValue(response, AggregatedResponse.class);
 
-                        // Find the latest chapter number as a String
                         String latestChapter = aggregatedResponse.getVolumes().values().stream()
                                 .flatMap(volume -> volume.getChapters().values().stream())
                                 .map(chapter -> {
@@ -352,9 +351,9 @@ public class ServiceAPI {
                                                             try {
                                                                 float chapterNumber = Float.parseFloat(chapterNumberStr);
                                                                 if (chapterNumber == Math.floor(chapterNumber)) {
-                                                                    allChapters.put(String.valueOf((int) chapterNumber), chapterId); // Convert to int if no decimals
+                                                                    allChapters.put(String.valueOf((int) chapterNumber), chapterId);
                                                                 } else {
-                                                                    allChapters.put(chapterNumberStr, chapterId); // Keep as float string if it has decimals
+                                                                    allChapters.put(chapterNumberStr, chapterId);
                                                                 }
                                                             } catch (NumberFormatException e) {
                                                                 allChapters.put("Oneshot", chapterId);
@@ -362,24 +361,20 @@ public class ServiceAPI {
                                                         }
                                                     }
 
-                                                    // Updated sorting logic
                                                     allChapters = allChapters.entrySet().stream()
                                                             .sorted((entry1, entry2) -> {
                                                                 String key1 = entry1.getKey();
                                                                 String key2 = entry2.getKey();
 
-                                                                // Handle "Oneshot" to always come first or last, depending on your preference
                                                                 if (key1.equalsIgnoreCase("Oneshot")) {
-                                                                    return -1; // "Oneshot" comes before numeric chapters
+                                                                    return -1;
                                                                 } else if (key2.equalsIgnoreCase("Oneshot")) {
-                                                                    return 1; // "Oneshot" comes before numeric chapters
+                                                                    return 1;
                                                                 }
 
-                                                                // Parse keys as doubles for numeric comparison
                                                                 try {
                                                                     return Double.compare(Double.parseDouble(key1), Double.parseDouble(key2));
                                                                 } catch (NumberFormatException e) {
-                                                                    // Handle non-numeric keys if necessary
                                                                     return key1.compareTo(key2);
                                                                 }
                                                             })
@@ -387,7 +382,7 @@ public class ServiceAPI {
                                                                     Map.Entry::getKey,
                                                                     Map.Entry::getValue,
                                                                     (oldValue, newValue) -> oldValue,
-                                                                    LinkedHashMap::new // Maintain insertion order
+                                                                    LinkedHashMap::new
                                                             ));
 
                                                     chapterImg.setAllChapters(allChapters);
@@ -426,13 +421,10 @@ public class ServiceAPI {
                             .bodyToMono(String.class)
                             .mapNotNull(response -> {
                                 try {
-                                    // Parse the response to a JsonNode
                                     JsonNode rootNode = objectMapper.readTree(response);
 
-                                    // Extract data node
                                     JsonNode dataNode = rootNode.path("data");
 
-                                    // Extract the relevant fields
                                     String id = dataNode.path("id").asText();
                                     String title = dataNode.path("attributes").path("title").path("en").asText();
                                     String coverFile = dataNode.path("relationships").findValues("attributes").stream()
@@ -441,7 +433,6 @@ public class ServiceAPI {
                                             .map(node -> node.path("fileName").asText())
                                             .orElse(null);
 
-                                    // Create and populate Manga object
                                     Manga manga = new Manga();
                                     manga.setId(id);
                                     manga.setTitle(title);
@@ -449,14 +440,12 @@ public class ServiceAPI {
 
                                     return manga;
                                 } catch (Exception e) {
-                                    // Handle the exception (you might want to log it)
                                     return null;
                                 }
                             });
                 })
                 .collect(Collectors.toList());
 
-        // Zip the Monos into a Mono<List<Manga>>
         return Mono.zip(mangaMonos, objects ->
                 Arrays.stream(objects)
                         .map(object -> (Manga) object)

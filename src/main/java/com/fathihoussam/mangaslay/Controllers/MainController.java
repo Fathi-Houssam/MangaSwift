@@ -6,12 +6,12 @@ import com.fathihoussam.mangaslay.Services.ServiceAPI;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +33,6 @@ public class MainController {
     public String hello(HttpSession session, Model model) {
         Long userId = (Long) session.getAttribute("userId");
 
-        // Call the method on the repository instance
         List<String> libraryMangaIds = usermangainfo.findMangaIdByUserId(userId);
         List<Manga> mangas = serviceAPI.libraryMangas(libraryMangaIds).block();
         model.addAttribute("librarymangas", mangas);
@@ -57,9 +56,11 @@ public class MainController {
         detailsMono
                 .doOnNext(detail -> model.addAttribute("detail", detail))
                 .doOnError(e -> model.addAttribute("error", "Failed to fetch manga details: " + e.getMessage()))
-                .block(); // Blocking for simplicity, consider using asynchronous processing in production
+                .block();
         return "ChapterPage";
     }
+
+
     @GetMapping("/chapter-info")
     public Mono<String> receiveChapterInfo(@RequestParam("chapterId") String chapterId, Model model) {
         return serviceAPI.imageGetter(chapterId)
@@ -96,6 +97,56 @@ public class MainController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error deleting manga: " + e.getMessage());
         }
     }
+
+    @RestController
+    @RequestMapping("/proxy-image")
+    public class ImageProxyController {
+
+        private final WebClient webClient;
+
+        public ImageProxyController(WebClient.Builder builder) {
+            this.webClient = builder.baseUrl("https://uploads.mangadex.org").build();
+        }
+
+        @GetMapping("/covers/{mangaId}/{fileName:.+}")
+        public Mono<ResponseEntity<byte[]>> proxyCoverImage(
+                @PathVariable String mangaId,
+                @PathVariable String fileName) {
+
+            return webClient.get()
+                    .uri("/covers/{mangaId}/{fileName}", mangaId, fileName)
+                    .retrieve()
+                    .bodyToMono(byte[].class)
+                    .map(body -> ResponseEntity
+                            .ok()
+                            .contentType(getContentType(fileName))
+                            .body(body));
+        }
+
+        @GetMapping("/{quality}/{hash}/{fileName:.+}")
+        public Mono<ResponseEntity<byte[]>> proxyChapterImage(
+                @PathVariable String quality,
+                @PathVariable String hash,
+                @PathVariable String fileName) {
+
+            return webClient.get()
+                    .uri("/{quality}/{hash}/{fileName}", quality, hash, fileName)
+                    .retrieve()
+                    .bodyToMono(byte[].class)
+                    .map(body -> ResponseEntity
+                            .ok()
+                            .contentType(getContentType(fileName))
+                            .body(body));
+        }
+
+        private MediaType getContentType(String filename) {
+            if (filename.endsWith(".jpg") || filename.endsWith(".jpeg")) return MediaType.IMAGE_JPEG;
+            if (filename.endsWith(".png")) return MediaType.IMAGE_PNG;
+            return MediaType.APPLICATION_OCTET_STREAM;
+        }
+    }
+
+
 
 }
 

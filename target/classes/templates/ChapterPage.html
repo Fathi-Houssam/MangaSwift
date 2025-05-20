@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <div class="manga-info">
-        <img th:src="'https://uploads.mangadex.org/covers/' + ${mangaid} + '/' + ${detail.coverURL} + '.512.jpg'" alt="Cover Image" class="manga-cover">
+        <img th:src="@{'/proxy-image/covers/' + ${mangaid} + '/' + ${detail.coverURL} + '.512.jpg'}" alt="Cover Image" class="manga-cover">
         <div class="manga-details">
             <h1 th:text="${detail.title}" class="manga-title"></h1>
             <p th:text=" ${detail.description}" class="manga-description"></p>
